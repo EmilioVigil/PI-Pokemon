@@ -22,7 +22,14 @@ server.use((req, res, next) => {
   next();
 });
 
-server.use('/', routes);
+
+
+server.use(express.json())
+
+// RUTAS
+server.use('', routes);
+
+
 
 // Error catching endware.
 server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
@@ -31,5 +38,11 @@ server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
   console.error(err);
   res.status(status).send(message);
 });
+
+
+
+
+
+
 
 module.exports = server;
